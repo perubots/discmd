@@ -14,6 +14,7 @@ function console_out(msg){
   console.log(msg)
   rl.prompt(true)
 }
+
 rl.question('Agrege un nickname: ', function(name) {
   nick = name
   let msg = nick + " join the chat"
@@ -22,3 +23,43 @@ rl.question('Agrege un nickname: ', function(name) {
   })
   rl.prompt(true)
 })
+
+rl.on('line', function (line) {
+  if(line[0] == "/" && line.length > 1) {
+    let cmd = line.match(/[a-z]+\b/)[0]
+    let arg = line.substr(cmd.length+2, line.length)
+    
+  } else {
+    socket.emit('send', {
+      type: 'chat', message: line, nick: nick
+    })
+    rl.prompt(true)
+  }
+})
+function command(cmd, arg) {
+  switch (cmd) {
+    case 'nick':
+      let log = nick + " changed name to "+ arg
+      nick = arg
+      socket.emit('send', {
+        type: 'log', message: log
+      })
+      break;
+    case 'msg':
+      let to = arg.match(/[a-z]+\b/)[0]
+      let message = arg.substr(to.length, arg.length)
+      socket.emit('send', {
+        type: 'tell', message: message, to: to, from: nick
+      })
+      break;  
+    case 'me':
+      let emote = arg.match(/[a-z]+\b/)[0]
+      let message = arg.substr(to.length, arg.length)
+      socket.emit('send', {
+        type: 'tell', message: message, to: to, from: nick
+      })
+      break;  
+    default:
+      break;
+  }
+}
