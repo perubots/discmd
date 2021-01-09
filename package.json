@@ -1,0 +1,20 @@
+{
+  "name": "discmd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CraterMaik/discmd.git"
+  },
+  "keywords": ["chat", "discord", "cmd", "readline"],
+  "author": "CraterMaik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CraterMaik/discmd/issues"
+  },
+  "homepage": "https://github.com/CraterMaik/discmd#readme"
+}
