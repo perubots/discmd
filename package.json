@@ -2,7 +2,7 @@
   "name": "discmd",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,11 +10,20 @@
     "type": "git",
     "url": "git+https://github.com/CraterMaik/discmd.git"
   },
-  "keywords": ["chat", "discord", "cmd", "readline"],
+  "keywords": [
+    "chat",
+    "discord",
+    "cmd",
+    "readline"
+  ],
   "author": "CraterMaik",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CraterMaik/discmd/issues"
   },
-  "homepage": "https://github.com/CraterMaik/discmd#readme"
+  "homepage": "https://github.com/CraterMaik/discmd#readme",
+  "dependencies": {
+    "socket.io": "^3.0.5",
+    "socket.io-client": "^3.0.5"
+  }
 }
