@@ -28,7 +28,8 @@ rl.on('line', function (line) {
   if(line[0] == "/" && line.length > 1) {
     let cmd = line.match(/[a-z]+\b/)[0]
     let arg = line.substr(cmd.length+2, line.length)
-    
+    command(cmd, arg)
+
   } else {
     socket.emit('send', {
       type: 'chat', message: line, nick: nick
@@ -36,6 +37,7 @@ rl.on('line', function (line) {
     rl.prompt(true)
   }
 })
+
 function command(cmd, arg) {
   switch (cmd) {
     case 'nick':
@@ -45,21 +47,18 @@ function command(cmd, arg) {
         type: 'log', message: log
       })
       break;
-    case 'msg':
-      let to = arg.match(/[a-z]+\b/)[0]
-      let message = arg.substr(to.length, arg.length)
-      socket.emit('send', {
-        type: 'tell', message: message, to: to, from: nick
-      })
-      break;  
-    case 'me':
-      let emote = arg.match(/[a-z]+\b/)[0]
-      let message = arg.substr(to.length, arg.length)
-      socket.emit('send', {
-        type: 'tell', message: message, to: to, from: nick
-      })
-      break;  
     default:
+      console_out('invalid command.')
       break;
   }
 }
+
+socket.on('message', function (data) {
+  let leader
+  if(data.type == 'chat' && data.nick != nick) {
+    leader = color(`[${data.nick}] `, "green")
+    console_out(leader + data.message)
+  } else if(data.type == 'log') {
+    console_out(color(data.message, 'cyan'))
+  }
+})
