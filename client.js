@@ -1,4 +1,3 @@
-const { Socket } = require('dgram')
 let readline = require('readline')
 let socketClient = require('socket.io-client')
 let util = require('util')
