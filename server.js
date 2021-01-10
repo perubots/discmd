@@ -3,9 +3,9 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 
-io.sockets.on('connection', function (socket) {
+io.on('connection', function (socket) {
   socket.on('send', function (data) {
-    io.sockets.emit('message', data)
+    socket.broadcast.emit('message', data)
 
   })
 
