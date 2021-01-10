@@ -54,6 +54,7 @@ socket.on('message', function (data) {
   let leader
   if(data.type == 'chat' && data.nick != nick) {
     leader = color(`[${data.nick}] `, "green")
+    
     console_out(leader + data.message)
   } else if(data.type == 'log') {
     console_out(color(data.message, 'cyan'))
