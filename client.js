@@ -1,10 +1,8 @@
 let readline = require('readline')
-let socketClient = require('socket.io-client')
-let util = require('util')
+let socket = require('socket.io-client')('http://localhost:8080')
 let color = require('ansi-color').set
 
 let nick
-let socket = socketClient.connect('localhost', { port: 8080 })
 let rl = readline.createInterface(process.stdin, process.stdout)
 
 function console_out(msg){
