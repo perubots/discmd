@@ -52,11 +52,11 @@ client.on('ready', () => {
 client.on('message', async message => {
   if (message.channel.id !== process.env.ID_CHANNEL) return
   if (message.author.bot) return
-
-  io.emit('send', {
+  console.log('entro');
+  io.emit('new message', {
     type: 'chat',
-    message: message.cleanContent,
-    nick: message.member.displayName
+    message: message.content,
+    nick: message.author.username
   })
 })
 
