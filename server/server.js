@@ -5,6 +5,8 @@ const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 const fetch = require('node-fetch')
+const Discord = require('discord.js')
+const client = new Discord.Client()
 
 let URLWH = `https://discord.com/api/v8/webhooks/${process.env.ID_WEBHOOK}/${process.env.TOKEN_WEBHOOK}`
 
@@ -44,11 +46,20 @@ io.on('connection', function (socket) {
 
 })
 
+client.on('ready', () => {
+  console.log(`Ready bot.`);
+})
+client.on('message', async message => {
+  if (message.channel.id !== process.env.ID_CHANNEL) return
+  if (message.author.bot) return
+})
 
 const port = process.env.PORT || 8080
 
 server.listen(port, function () {
   console.log(`Ready, port ${port}`)
+  client.login()
+  
 })
 
 process.on("unhandledRejection", (r) => {
