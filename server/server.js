@@ -52,7 +52,7 @@ client.on('ready', () => {
 client.on('message', async message => {
   if (message.channel.id !== process.env.ID_CHANNEL) return
   if (message.author.bot) return
-  console.log('entro');
+  
   io.emit('new message', {
     type: 'chat',
     message: message.content,
