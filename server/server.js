@@ -52,6 +52,12 @@ client.on('ready', () => {
 client.on('message', async message => {
   if (message.channel.id !== process.env.ID_CHANNEL) return
   if (message.author.bot) return
+
+  io.emit('send', {
+    type: 'chat',
+    message: message.cleanContent,
+    nick: message.member.displayName
+  })
 })
 
 const port = process.env.PORT || 8080
