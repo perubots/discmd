@@ -10,6 +10,7 @@ function console_out(msg){
   process.stdout.cursorTo(0)
   console.log(msg)
   rl.prompt(true)
+  
 }
 
 rl.question('Agrege un nickname: ', function(name) {
@@ -17,6 +18,7 @@ rl.question('Agrege un nickname: ', function(name) {
   let msg = nick + " join the chat"
   socket.emit('send', {
     type: 'log', message: msg
+
   })
   rl.prompt(true)
 })
