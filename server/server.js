@@ -37,6 +37,7 @@ io.on('connection', function (socket) {
       body: body,
       headers: {
         'Content-Type': 'application/json'
+        
       }
     })
 
@@ -47,8 +48,9 @@ io.on('connection', function (socket) {
 })
 
 client.on('ready', () => {
-  console.log(`Ready bot.`);
+  console.log(`Ready bot`);
 })
+
 client.on('message', async message => {
   if (message.channel.id !== process.env.ID_CHANNEL) return
   if (message.author.bot) return
