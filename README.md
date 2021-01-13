@@ -29,5 +29,5 @@ npm start
 
 * Para el cliente
 ```
-npm client
+npm run chat
 ```
