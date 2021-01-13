@@ -57,7 +57,7 @@ client.on('message', async message => {
   
   io.emit('new message', {
     type: 'chat',
-    message: message.content,
+    message: message.cleanContent,
     nick: message.author.username
   })
 })
