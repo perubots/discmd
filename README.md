@@ -6,7 +6,7 @@ Discmd es una aplicación de mesajeria en tiempo real usando el terminal de tu S
 ## Ejecución
 
 1. Crear archivo `.env`
-    * Un ejemplo se encuentra en .env.example (cp .env.example .env en Linux)
+    * Un ejemplo se encuentra en `.env.example (cp .env.example .env en Linux)`
     * configurar las siguientes variables:
     ```json
     
