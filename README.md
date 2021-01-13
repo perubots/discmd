@@ -1,7 +1,7 @@
 ![This is a alt text.](https://i.imgur.com/5SvNlgH.gif)
 
 # Discmd
-Discmd es una aplicación de mesajeria en tiempo real usando el terminal de tu SO con servidores de Discord, Mediante la integración de un webhook para conectarse a un canal de Discord.
+Discmd es una aplicación de mensajeria en tiempo real usando el terminal de tu S.O. con servidores de Discord, Mediante la integración de un webhook para conectarse a un canal de Discord.
 
 ## Ejecución
 
